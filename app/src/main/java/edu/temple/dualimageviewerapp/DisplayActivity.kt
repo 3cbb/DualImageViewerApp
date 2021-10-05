@@ -10,9 +10,13 @@ class DisplayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
+        var myImageObject : ImageObject = intent.getSerializableExtra("ImageObjectIn") as ImageObject
+
         var textView: TextView = findViewById(R.id.textView2)
+        textView.text = myImageObject.description
 
         var imageView: ImageView = findViewById(R.id.imageView)
+        imageView.setImageResource(myImageObject.resourceID)
     }
 
 

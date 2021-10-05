@@ -1,3 +1,5 @@
 package edu.temple.dualimageviewerapp
 
-data class ImageObject(val description: String, val resourceID: Int)
+import java.io.Serializable
+
+data class ImageObject (val description: String, val resourceID: Int) : Serializable

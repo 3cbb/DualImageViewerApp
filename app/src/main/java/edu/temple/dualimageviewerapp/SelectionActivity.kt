@@ -18,9 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var textView: TextView = findViewById(R.id.textView)
-
-        var imageView: ImageView = findViewById(R.id.imageView2)
 
         var recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
@@ -39,10 +36,11 @@ class MainActivity : AppCompatActivity() {
 
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
-            //imageView.setImageResource(imageArray[itemPosition].resourceID)
-            //textView.text = imageArray[itemPosition].description
 
             val launchActivityIntent = Intent(this, DisplayActivity::class.java)
+
+            launchActivityIntent.putExtra("ImageObjectIn", imageArray[itemPosition])
+
             startActivity(launchActivityIntent)
         }
 
