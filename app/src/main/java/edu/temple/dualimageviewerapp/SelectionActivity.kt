@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +39,11 @@ class MainActivity : AppCompatActivity() {
 
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
-            imageView.setImageResource(imageArray[itemPosition].resourceID)
-            textView.text = imageArray[itemPosition].description
+            //imageView.setImageResource(imageArray[itemPosition].resourceID)
+            //textView.text = imageArray[itemPosition].description
+
+            val launchActivityIntent = Intent(this, DisplayActivity::class.java)
+            startActivity(launchActivityIntent)
         }
 
         recyclerView.adapter = ImageAdapter(this, imageArray, onClickListener)
