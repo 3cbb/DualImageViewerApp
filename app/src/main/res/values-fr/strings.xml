@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dual Image Viewer App</string>
+    <string name="display_String">Désolation</string>
+    <string name="instructions">Cliquez sur une image ci-dessous pour voir!</string>
+    <string name="main_activity_label">Sélection</string>
+    <string name="selection_activity_label">Afficher</string>
+    <string-array name="land_names">
+        <item>Toundra</item>
+        <item>Brousse</item>
+        <item>Plateau</item>
+        <item>Savane</item>
+        <item>Mer sous-terraine</item>
+        <item>Ile volcanique</item>
+        <item>Ile tropicale</item>
+        <item>Désolation</item>
+        <item>Bayou</item>
+        <item>Taïga</item>
+    </string-array>
+
+</resources>
