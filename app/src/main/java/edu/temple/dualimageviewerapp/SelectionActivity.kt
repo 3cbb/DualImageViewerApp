@@ -18,20 +18,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var landNames = resources.getStringArray(R.array.land_names)
+
 
         var recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
         val imageArray = arrayOf(
-            ImageObject("badlands", R.drawable.badlands),
-            ImageObject("plateau", R.drawable.plateau),
-            ImageObject("bayou", R.drawable.bayou),
-            ImageObject("savannah", R.drawable.savannah),
-            ImageObject("scrubland", R.drawable.scrubland),
-            ImageObject("taiga", R.drawable.taiga),
-            ImageObject("trop", R.drawable.trop),
-            ImageObject("tundra", R.drawable.tundra),
-            ImageObject("usea", R.drawable.usea),
-            ImageObject("volc", R.drawable.volc)
+            ImageObject(landNames[7], R.drawable.badlands),
+            ImageObject(landNames[2], R.drawable.plateau),
+            ImageObject(landNames[8], R.drawable.bayou),
+            ImageObject(landNames[3], R.drawable.savannah),
+            ImageObject(landNames[1], R.drawable.scrubland),
+            ImageObject(landNames[9], R.drawable.taiga),
+            ImageObject(landNames[6], R.drawable.trop),
+            ImageObject(landNames[0], R.drawable.tundra),
+            ImageObject(landNames[4], R.drawable.usea),
+            ImageObject(landNames[5], R.drawable.volc)
         )
 
         val onClickListener = View.OnClickListener {

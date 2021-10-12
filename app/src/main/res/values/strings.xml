@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Dual Image Viewer App</string>
     <string name="display_String">Badlands</string>
+    <string name="instructions">Click an image below to view!</string>
+    <string name="main_activity_label">Selection</string>
+    <string name="selection_activity_label">Display</string>
+    <string-array name="land_names">
+        <item>Tundra</item>
+        <item>Scrubland</item>
+        <item>Plateau</item>
+        <item>Savannah</item>
+        <item>Underground Sea</item>
+        <item>Volcanic Island</item>
+        <item>Tropical Island</item>
+        <item>Badlands</item>
+        <item>Bayou</item>
+        <item>Taiga</item>
+    </string-array>
+
 </resources>
