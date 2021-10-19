@@ -9,19 +9,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Intent
-
-
+import androidx.fragment.app.FragmentContainerView
 
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var mySelectionFragment: SelectionFragment
+    lateinit var myDisplayFragment: DisplayFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var landNames = resources.getStringArray(R.array.land_names)
-
-
-        var recyclerView: RecyclerView = findViewById(R.id.recyclerView)
 
         val imageArray = arrayOf(
             ImageObject(landNames[7], R.drawable.badlands),
@@ -36,6 +36,23 @@ class MainActivity : AppCompatActivity() {
             ImageObject(landNames[5], R.drawable.volc)
         )
 
+        mySelectionFragment = SelectionFragment.getInstance(imageArray)
+        myDisplayFragment = DisplayFragment()
+
+
+        var fragmentContainer1 : FragmentContainerView = findViewById(R.id.fragmentContainerView)
+        var fragmentContainer2 : FragmentContainerView = findViewById(R.id.fragmentContainerView2)
+
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainerView, mySelectionFragment)
+            .add(R.id.fragmentContainerView2, myDisplayFragment)
+            .commit()
+
+
+
+        /*var recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+
+
         val onClickListener = View.OnClickListener {
             val itemPosition = recyclerView.getChildAdapterPosition(it)
 
@@ -47,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         recyclerView.adapter = ImageAdapter(this, imageArray, onClickListener)
-
+        */
 
 
 
@@ -56,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-class ImageAdapter(var _context: Context, private val _dataSet: Array<ImageObject>, _ocl : View.OnClickListener) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+/*class ImageAdapter(var _context: Context, private val _dataSet: Array<ImageObject>, _ocl : View.OnClickListener) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private val dataSet = _dataSet
     val ocl = _ocl
@@ -78,4 +95,21 @@ class ImageAdapter(var _context: Context, private val _dataSet: Array<ImageObjec
 
     override fun getItemCount() = dataSet.size
 
-}
+}*/
+
+/*class DisplayActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_display)
+
+        var myImageObject : ImageObject = intent.getSerializableExtra("ImageObjectIn") as ImageObject
+
+        var textView: TextView = findViewById(R.id.textView2)
+        textView.text = myImageObject.description
+
+        var imageView: ImageView = findViewById(R.id.imageView)
+        imageView.setImageResource(myImageObject.resourceID)
+    }
+
+
+}*/
