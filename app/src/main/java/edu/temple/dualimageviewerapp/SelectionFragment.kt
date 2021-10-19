@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,11 +31,15 @@ class SelectionFragment : Fragment() {
 
     private lateinit var imageArray : Array<ImageObject>
 
+    private lateinit var viewModel : MyViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getSerializable(ARG_PARAM1) as Array<ImageObject>
             imageArray = param1 as Array<ImageObject>
+
+            viewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
         }
 
     }
@@ -49,6 +54,10 @@ class SelectionFragment : Fragment() {
         layout = inflater.inflate(R.layout.fragment_selection, container, false)
 
         recyclerView = layout.findViewById(R.id.recyclerView)
+
+
+
+
 
 
         val onClickListener = View.OnClickListener {
