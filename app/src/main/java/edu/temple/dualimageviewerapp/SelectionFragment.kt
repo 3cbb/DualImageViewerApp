@@ -61,13 +61,12 @@ class SelectionFragment : Fragment() {
 
 
         val onClickListener = View.OnClickListener {
-            //val itemPosition = recyclerView.getChildAdapterPosition(it)
+            val itemPosition = recyclerView.getChildAdapterPosition(it)
 
-            //val launchActivityIntent = Intent(requireActivity(), DisplayActivity::class.java)
 
-            //launchActivityIntent.putExtra("ImageObjectIn", imageArray[itemPosition])
 
-            //startActivity(launchActivityIntent)
+            ViewModelProvider(requireActivity()).get(MyViewModel::class.java).setImageObject(imageArray[itemPosition])
+
         }
 
         recyclerView.adapter = ImageAdapter(requireActivity(), imageArray, onClickListener)

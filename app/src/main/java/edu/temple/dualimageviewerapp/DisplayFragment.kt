@@ -41,6 +41,8 @@ class DisplayFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
 
             viewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+
+
         }
     }
 
@@ -54,9 +56,18 @@ class DisplayFragment : Fragment() {
         textView = layout.findViewById(R.id.textView4)
         imageView = layout.findViewById(R.id.imageView2)
 
+        ViewModelProvider(requireActivity()).get(MyViewModel::class.java).getImageObject().observe(requireActivity(), { it ->
+            setInformation(it)
+        })
+
 
 
         return layout
+    }
+
+    fun setInformation(_imageObject : ImageObject){
+        textView.text = _imageObject.description
+        imageView.setImageResource(_imageObject.resourceID)
     }
 
     companion object {
